@@ -1,37 +1,97 @@
-	
-#include <iostream>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
- 
-// Function to check if strings `X` and `Y` are interleaving of
 
-class Solution {
-public:
-
-    bool valid(string s , int i , int j , int k)
-    {
-        return !s.empty() && s.size() <= 3 && stoi(s) <= 255 && (s[0] != '0' || s.size() == 1);
-    }
-
-    vector<string> restoreIpAddresses(string s) {
-        vector<string> res;
-        for(int i = 0 ; i < n - 3 ; i++)
-            for(int j = i + 1 ; j< n-2 ; j++)
-            {
-                for(int k = j + 1 ; k < n-1 ; k++)
-                {
-                    if(valid(s,i,j,k) )
-                       res.push_back( s.substr(0,i) + "." + s.substr(i,j) + "."+ s.substr(i+j , k) + "." +s.substr(i+j+k) );
-                }
-            }
-    }
+struct Node {
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
 };
 
 
-int main()
+void print(Node *root)
 {
-    string str = "axxxy"; 
-    cout << "234";
-   // cout << LongestRepeatingSubsequence(str);
-    return 0;
+    Node *temp = root;
+    while(temp!=NULL)
+    {
+    cout<<temp->data<<" ";
+    temp=temp->next;
+    }
+}
+Node* removeDuplicates(Node *root);
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+
+	while(T--)
+	{
+		int K;
+		cin>>K;
+		Node *head = NULL;
+        Node *temp = head;
+
+		for(int i=0;i<K;i++){
+		int data;
+		cin>>data;
+			if(head==NULL)
+			head=temp=new Node(data);
+			else
+			{
+				temp->next = new Node(data);
+				temp=temp->next;
+			}
+		}
+		
+		Node *result  = removeDuplicates(head);
+		print(result);
+		cout<<endl;
+	}
+	return 0;
+}// } Driver Code Ends
+
+
+/*
+struct Node {
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
+};*/
+
+//Function to remove duplicates from sorted linked list.
+Node *removeDuplicates(Node *head)
+{
+ // your code goes here
+      Node *temp=head ;
+     Node * next = head->next;
+    
+    while(temp->next != NULL)
+    {
+        next = temp->next ;
+        if(next->data == temp->data && temp != head )
+        {
+            //next = temp->next ;
+            Node* curr = temp ;
+            curr = temp ;
+            temp = temp->next ;
+            free(curr);
+        }
+        else if(next->data == temp->data && temp == head  )
+        {
+            Node* curr = temp ;
+            curr = temp ;
+            temp = temp->next ;
+            head = temp;
+            free(curr);
+        }
+        else 
+            temp = temp->next ;
+    }   
+    return head ;
+    
 }

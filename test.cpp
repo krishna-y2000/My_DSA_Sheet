@@ -1,97 +1,25 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#define NO_OF_CHARS 256
+
 using namespace std;
-
-struct Node {
-  int data;
-  struct Node *next;
-  Node(int x) {
-    data = x;
-    next = NULL;
-  }
-};
-
-
-void print(Node *root)
+		// while(left <= right  )
+        //    
+    // {
+void pzz(int n)
 {
-    Node *temp = root;
-    while(temp!=NULL)
-    {
-    cout<<temp->data<<" ";
-    temp=temp->next;
-    }
+    if(n == 0  )
+        return ;
+    cout << "Pre " <<  n << endl ;
+    pzz(n-1) ;
+    cout << "In " << n << endl ;
+    pzz(n-1) ;
+    cout << "Post " << n << endl ; 
 }
-Node* removeDuplicates(Node *root);
-int main() {
-	// your code goes here
-	int T;
-	cin>>T;
 
-	while(T--)
-	{
-		int K;
-		cin>>K;
-		Node *head = NULL;
-        Node *temp = head;
-
-		for(int i=0;i<K;i++){
-		int data;
-		cin>>data;
-			if(head==NULL)
-			head=temp=new Node(data);
-			else
-			{
-				temp->next = new Node(data);
-				temp=temp->next;
-			}
-		}
-		
-		Node *result  = removeDuplicates(head);
-		print(result);
-		cout<<endl;
-	}
-	return 0;
-}// } Driver Code Ends
-
-
-/*
-struct Node {
-  int data;
-  struct Node *next;
-  Node(int x) {
-    data = x;
-    next = NULL;
-  }
-};*/
-
-//Function to remove duplicates from sorted linked list.
-Node *removeDuplicates(Node *head)
+int main()
 {
- // your code goes here
-      Node *temp=head ;
-     Node * next = head->next;
-    
-    while(temp->next != NULL)
-    {
-        next = temp->next ;
-        if(next->data == temp->data && temp != head )
-        {
-            //next = temp->next ;
-            Node* curr = temp ;
-            curr = temp ;
-            temp = temp->next ;
-            free(curr);
-        }
-        else if(next->data == temp->data && temp == head  )
-        {
-            Node* curr = temp ;
-            curr = temp ;
-            temp = temp->next ;
-            head = temp;
-            free(curr);
-        }
-        else 
-            temp = temp->next ;
-    }   
-    return head ;
-    
+    int n = 3 ;
+    pzz(n) ;
+    return 0 ;
 }

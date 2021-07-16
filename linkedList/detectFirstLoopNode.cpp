@@ -5,11 +5,11 @@ struct Node
 {
     int data ;
     struct Node* next ;
-
+    Node() { } ;
 };
 
 Node* newNode(int data ) {
-    Node* temp = new Node;
+    Node* temp = new Node();
     temp->data = data ;
     temp->next = NULL;
     return temp ; 

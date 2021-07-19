@@ -19,13 +19,13 @@ void solve(int row, vector<string> &board, vector<vector<string>> &ans,
             {
                 if(cols[col] == 0 && lowerDiagonal[col + row ] == 0 && upperDiagonal[row - col + n - 1] == 0 )
                 {
-                    board[col][row] = 'Q' ;
+                    board[[row]][col] = 'Q' ;
                     cols[col] = 1 ;
                     lowerDiagonal[col + row ] = 1 ;
                     upperDiagonal[row - col + n - 1] = 1 ;
                     solve(row + 1  , board , ans , cols , upperDiagonal , lowerDiagonal , n  );
                     cols[col] = 0 ;
-                    board[col][row] = '.' ;
+                    board[row][col] = '.' ;
                     lowerDiagonal[col + row ] = 0 ;
                     upperDiagonal[row - col + n - 1] = 0 ;
                 }   

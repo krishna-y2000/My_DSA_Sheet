@@ -10,7 +10,7 @@ void solve(int ind , vector<int> nums   )
 {
     if(ind == nums.size() )
     {
-        res.emplace_back(nums);
+        res.emplace_back(nums);                     
     }
 
     for(int i = ind ; i < nums.size() ; i++ )

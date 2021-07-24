@@ -2,6 +2,9 @@
 using namespace std ;
 
 
+// Input: nums = [1,2,3]
+// Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+
 // Problem :  Subset with no duplicate 
 // Method 1 : 
 class Solution {
@@ -34,9 +37,9 @@ public:
            result.push_back(current);
            return ;
        }
-       helper(nums , ind + 1 , current );
-       current.push_back(nums[ind] );
-       helper(nums , ind + 1 , current);
+       helper(nums , ind + 1 , current ); // No value taken and call
+       current.push_back(nums[ind] );     // Value taken and call
+       helper(nums , ind + 1 , current);    
      
     }
 

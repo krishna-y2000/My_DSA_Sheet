@@ -30,7 +30,7 @@ void solve(int i  , string ustring , int ssf , int k , string asf )
 // Method 2 : 
 
 // Choice is made by box( index of string ) of which char to choose
-vector<string> res ;
+vector<string> result ;
 void solve(int cb, string ustring , int k , vector<string>  current )
 {
 

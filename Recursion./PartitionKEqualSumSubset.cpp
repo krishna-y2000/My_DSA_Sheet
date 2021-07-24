@@ -5,57 +5,40 @@ using namespace std ;
 class Solution {
 public:
 
-
-    bool solve(int i , vector<int> nums , int cons , int k , vector<vector<int>> subset , vector<int> sumV)
+    bool solve(vector<int> nums , vector<int> visited , int start , int k , int sum , int curr_num , int target   )
     {
-        if(i  > nums.size() )
+        if(k == 1  )
+            return true ;
+        if(sum > target )   /// Reduces the time complexity 
+            return false ;
+        if(sum == target && curr_num > 0 )
         {
-            if(cons == k )
-            {
-                for(int m = 0 ; m < subset.size() ; m++)
-                {
-                    for(int j = 0 ; j < subset[m].size() ; j++ )
-                    {
-                        sum += subset[m][j];
-                        
-                    }
-                    if(prevSum == 0 )
-                        prevSum = sum   ;
-                    else if(prevSum == sum )
-                        continue ;
-                    else 
-                        return false ;
-                }
-                return true ;
-            }
+             return solve(nums , visited , 0 , k - 1 ,  0 , 0 , target );
         }
 
-        for(int j = 0 ; j < nums.size() ; j++ )
+        for(int i = start ; i < nums.size() ; i++ )
         {
-            if(subset[cons].size() == 0  )
+            if(!visited[i])
             {
-                subset[j].push_back(i);
-                sumV[j] += i ;
-                solve(i + 1 , nums , cons + 1 , k  , subset , sumV );
-                sumV[j] -= i ;
-                subset[j].pop_back(i);
-                break;
-            }
-            else
-            {
-                subset[j].push_back(i );
-                solve( i + 1 , nums , cons , k  , subset , sumV);
-                subset[j].pop_back(i);
+                visited[i] = 1 ;
+                if(solve(nums , visited , i + 1 , k ,  sum + nums[i] , curr_num + 1 , target ) )
+                    return true ;
+                visited[i] = 0;
             }
         }
+        return false ;
 
     }
 
     bool canPartitionKSubsets(vector<int>& nums, int k) {
-        int n = nums.size();
-        sort(nums.begin() , nums.end() );
-        vector<vector<int>> subset ;
-        vector<vector<int>> sumV ;
-        return solve(nums[0] , nums , 0 , k  , subset , sumV );
+        int sum = 0 ;
+        for( int val  : nums)
+        {
+            sum += val ;
+        }
+        if(k <= 0 || sum % k != 0 )
+            return false ;
+        vector<int> visited(nums.size(), 0);
+        return solve(nums , visited , 0 , k ,  0 , 0 , sum/k );
     }
 };

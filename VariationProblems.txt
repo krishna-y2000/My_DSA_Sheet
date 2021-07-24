@@ -1,0 +1,2 @@
+***    Variation of Knapsack     ***
+1) Equal Subset Sum Problem

@@ -1,2 +1,9 @@
 ***    Variation of Knapsack     ***
 1) Equal Subset Sum Problem
+
+
+
+*** Binary Search ***
+1) Aggressive Cows 
+2) Book_Allocation
+3) Painter's Problem

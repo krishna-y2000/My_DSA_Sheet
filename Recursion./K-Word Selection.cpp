@@ -9,7 +9,7 @@ using namespace std ;
 vector<string> res ;
 void solve(int i  , string ustring , int ssf , int k , string asf )
 {
-    if( i == ustring.size() )
+    if( i == ustring.size() )               
     {
         if(ssf == k )
         {

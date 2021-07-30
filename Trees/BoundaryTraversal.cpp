@@ -1,0 +1,70 @@
+
+#include<bits/stdc++.h>
+using namespace std ;
+
+
+class Solution {
+public:
+
+    void solveLeft(Node* root ,vector<int> &v  )
+    {
+        
+        if(root == NULL)
+            return ;
+        if(root->left != NULL)
+    {
+        v.push_back(root->data);
+        solveLeft(root->left,v);
+    }
+    else if(root->right != NULL)
+    {
+        v.push_back(root->data);
+        solveLeft(root->right,v);
+    }
+        
+    }
+     void solveRight(Node* root ,vector<int>& res  )
+    {
+        
+        if(root == NULL)
+            return ;
+        if(root->right)
+        {
+            solveRight(root->right , res);
+            res.push_back(root->data);
+            
+        }
+        else if(root->left)
+        {
+            solveRight(root->left , res);
+            res.push_back(root->data);
+            
+        }
+        
+    }
+    void solveLeaf(Node*root , vector<int> &res  )
+    {
+        if(root == NULL)
+            return ;
+        solveLeaf(root->left , res);
+        if(!(root->left) && !(root->right))
+            res.push_back(root->data);
+        solveLeaf(root->right , res);
+        
+    }
+
+    vector <int> printBoundary(Node *root)
+    {
+        //Your code here
+        vector<int> res ;
+        if(!root)
+            return res ;
+        res.push_back(root->data);
+        
+        solveLeft(root->left , res);
+        solveLeaf(root->left , res);
+        solveLeaf(root->right , res);
+        solveRight(root->right , res);
+        return res ;
+    }
+};

@@ -1,27 +1,46 @@
 #include<bits/stdc++.h>
 using namespace std;
 	
-int main()
+struct Node* constructTreeUtil(int pre[], int &preIndex,
+                               int low, int high, int size)
 {
-
-    string str ;
-    cin >> str ;
-    sort(str.begin() , str.end() );
-    vector<pair<int, int> > v( (2,3) , (0,1) ) ;
-    sort(v.begin() , v.end() );
-    for(int i = 0 ; i < v ; i++ )
-    {
-        //cout << v;
-    };
-    cout << v;
-    //cout << v;cout << str ;
-    return 0; 
+    // Base case
+    if (preIndex >= size || low > high)
+        return NULL;
+ 
+    // The first node in preorder traversal is root. So take
+    // the node at preIndex from pre[] and make it root, and
+    // increment preIndex
+    struct Node* root = newNode(pre[preIndex]);
+    preIndex = preIndex + 1;
+ 
+    // If the current subarry has only one element, no need
+    // to recur
+    if (low == high)
+        return root;
+ 
+    // Search for the first element greater than root
+    int i;
+    for (i = low; i <= high; ++i)
+        if (pre[i] > root->data)
+            break;
+ 
+    // Use the index of element found in preorder to divide
+    // preorder array in two parts. Left subtree and right
+    // subtree
+    root->left = constructTreeUtil(pre, preIndex, preIndex,
+                                   i - 1, size);
+    root->right
+        = constructTreeUtil(pre, preIndex, i, high, size);
+ 
+    return root;
 }
 
-
+Node* constructTree(int pre[], int size)
 {
-    int stringToInteger(string str2)
-    {
-        int x = stoi(str2);
-        return x ;
-    }
+    //code here
+    int preIndex = 0;
+     return constructTreeUtil(pre, preIndex, 0, size - 1,size);
+                             
+
+}

@@ -3,7 +3,7 @@
 using namespace std ;
 
 // Same solution for both LCA in binary tree and LCA in BST
-
+// TC : O(n) 
  Node* lca(Node* root ,int n1 ,int n2  )
     {
        //Your code here 

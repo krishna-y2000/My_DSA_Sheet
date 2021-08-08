@@ -69,9 +69,11 @@ private:
         }
         for (auto [key, value] : counter) {
             if (value == 0) continue;
-            curr.emplace_back(key); --counter[key];
+            curr.emplace_back(key);
+            --counter[key];
             generatePermutations(counter, curr, output, n);
-            curr.pop_back(); ++counter[key];
+            curr.pop_back(); 
+            ++counter[key];
         }
     }
 }; 

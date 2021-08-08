@@ -66,6 +66,7 @@ int countPairs(Node* root1 , Node* root2 , int x)
         {
             counter++;
             j--;
+            i++;
         }
         else if(v1[i] + v2[j] < x)
             i++;

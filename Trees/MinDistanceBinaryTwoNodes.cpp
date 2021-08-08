@@ -2,6 +2,10 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
+
+// TC : O(n)
+// SC : O(h)
+
 Node* lca(Node* root ,int n1 ,int n2  )
     {
        //Your code here 

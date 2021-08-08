@@ -1,46 +1,38 @@
 #include<bits/stdc++.h>
-using namespace std;
-	
-struct Node* constructTreeUtil(int pre[], int &preIndex,
-                               int low, int high, int size)
-{
-    // Base case
-    if (preIndex >= size || low > high)
-        return NULL;
- 
-    // The first node in preorder traversal is root. So take
-    // the node at preIndex from pre[] and make it root, and
-    // increment preIndex
-    struct Node* root = newNode(pre[preIndex]);
-    preIndex = preIndex + 1;
- 
-    // If the current subarry has only one element, no need
-    // to recur
-    if (low == high)
-        return root;
- 
-    // Search for the first element greater than root
-    int i;
-    for (i = low; i <= high; ++i)
-        if (pre[i] > root->data)
-            break;
- 
-    // Use the index of element found in preorder to divide
-    // preorder array in two parts. Left subtree and right
-    // subtree
-    root->left = constructTreeUtil(pre, preIndex, preIndex,
-                                   i - 1, size);
-    root->right
-        = constructTreeUtil(pre, preIndex, i, high, size);
- 
-    return root;
-}
-
-Node* constructTree(int pre[], int size)
-{
-    //code here
-    int preIndex = 0;
-     return constructTreeUtil(pre, preIndex, 0, size - 1,size);
-                             
-
-}
+using namespace std ;
+     int networkDelayTime(vector<vector<int>>& times, int n, int k)
+     {
+         vector<pair<int,int> > adj[n+1];
+         for(auto it : times)
+         {
+             adj[it[0]].push_back({it[1] , it[2] } );
+         }
+         priority_queue<pair<int,int> , vector<pair<int,int> > , greater<pair<int,int>> q ;
+         vector<int> dist(n+1 , INT_MAX);
+         vector<int> vis(n+1 , 0);
+         dist[0] 0 ;
+         q.push({k ,0 } );
+         while(!q.empty())
+         {
+            int currentVal = q.front().first ;
+            int currentDist = q.front().second ;
+            for(auto child : adj[currentVal] )
+            {
+                if(!vis[child[0]] )
+                {
+                    int nextVal = child[0] ;
+                    int nextDist = child[1] ;
+                    if(currentDist + nextDist < dist[child[0]] )
+                    {
+                        dist[child[0]] = currentDist + nextDist ;
+                        q.push({nextVal , nextDist});
+                    }
+                }
+            }
+            vis[currentVal] = 1 ;
+         }
+         int val = *max_element(dist.begin() , dist.end() );
+         if(res == INT_MAX)
+            return -1 ;
+         return val ;
+     }

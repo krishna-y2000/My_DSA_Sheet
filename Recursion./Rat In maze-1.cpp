@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
-
+ // TC : 4 ^(n * m)   // Operation in 4 direction 
+ // SC : (n * m )     // cover all the space 
 
 class Solution{
     public:
@@ -70,7 +71,7 @@ class Solution{
         int di[] = { 1 , 0 ,0 , - 1 };
         int dj[] = {0 , -1 , 1 , 0 };
          if(m[0][0] == 1 )
-            solve(0 , 0 , m , n , ans , "" , vis , di , dj ); 
+        solve(0 , 0 , m , n , ans , "" , vis , di , dj ); 
         return ans ;
     }
 };

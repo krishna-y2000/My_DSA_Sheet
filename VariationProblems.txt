@@ -1,9 +1,14 @@
 ***    Variation of Knapsack     ***
-1) Equal Subset Sum Problem
+1) Equal Subset Sum Partition Problem
 
 
 
 *** Binary Search ***
-1) Aggressive Cows 
-2) Book_Allocation
-3) Painter's Problem
+1) Aggressive Cows  ,  Book_Allocation , Painter's Problem
+
+
+
+*** Graph Problem ***
+1) No of island , Number of Operations to Make Network Connected - BFS and Union and Find methods ,  
+
+Launcher key1: VC33298DO

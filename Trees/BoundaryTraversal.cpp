@@ -2,6 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
+// Method 1 & 2 :
 
 class Solution {
 public:
@@ -44,12 +45,26 @@ public:
     }
     void solveLeaf(Node*root , vector<int> &res  )
     {
+
+        // *** Method 1 ***  Finding leaf from both sub-tree
         if(root == NULL)
             return ;
         solveLeaf(root->left , res);
         if(!(root->left) && !(root->right))
             res.push_back(root->data);
         solveLeaf(root->right , res);
+
+        // *** Method 2 ***  Direct finding leaf from root
+         if(!(root->left) && !(root->right))
+            {
+                res.push_back(root->data);
+                return ;
+            }
+        if(root->left)
+            solveLeaf(root->left , res);
+        
+        if(root->right)
+            solveLeaf(root->right , res); 
         
     }
 
@@ -62,9 +77,16 @@ public:
         res.push_back(root->data);
         
         solveLeft(root->left , res);
-        solveLeaf(root->left , res);
-        solveLeaf(root->right , res);
+        // *** Method 1 ***
+            solveLeaf(root->left , res);
+            solveLeaf(root->right , res);
+        // *** Method 2 ***
+            solveLeaf(root,res);
+        // *** ***
         solveRight(root->right , res);
         return res ;
     }
 };
+
+
+

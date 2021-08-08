@@ -2,6 +2,9 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
+// Method 1 : 
+// TC : O( n )
+// SC : o( h ) or O( 1 )
 vector<int> solve(Node* root , vector<int> &res , int level)
 {
     if(root == NULL)
@@ -23,3 +26,8 @@ vector<int> leftView(Node *root)
      return res ;
    return solve(root , res , 0);
 }
+
+
+
+// Method 2 : Using Map in book 
+

@@ -13,6 +13,7 @@ struct TreeNode
         left = NULL ;
         right = NULL ;
     }
+}
 
 int *merge(int arr1[], int arr2[], int m, int n)
 {
@@ -56,7 +57,7 @@ TreeNode* sortedArrayToBST(int arr[], int start, int end)
 		return NULL;
 	}
 	int mid=(start+end)/2;
-	TreeNode *root=new TreeNode(arr[mid]);
+	TreeNode *root = new TreeNode(arr[mid]);
 	root->left=sortedArrayToBST(arr,start,mid-1);
 	root->right=sortedArrayToBST(arr,mid+1,end);
 	return root;
@@ -70,6 +71,6 @@ TreeNode* mergeTrees(TreeNode *root1, TreeNode *root2, int m, int n)
 	int arr2=new arr1[n];
 	int j=0;
 	storeInorder(root2,arr2,&j);
-	int *mergedArr=merge(arr1,arr2,m,n);
+	int *mergedArr = merge(arr1,arr2,m,n);
 	return sortedArrayToBST(mergedArr,0,m+n-1);
 }

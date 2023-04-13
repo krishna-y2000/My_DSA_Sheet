@@ -26,18 +26,21 @@ Node* detectAndRemoveLoop(Node* head)
     fast = fast->next->next;
     while (fast && fast->next) {
         if (slow == fast)
-            break;
+            return true ;
         slow = slow->next;
         fast = fast->next->next;
     }
-     if (slow != fast)
-        return NULL;
- 
-    slow = head;
-    while (slow != fast) {
-        slow = slow->next;
-        fast = fast->next;
-    }
- 
-    return slow;
+    return false ;
+
+        // delete the loop //
+    // slow=head;
+    // while(fast->next!=slow->next)
+    // {
+    //     fast=fast->next;
+    //     slow=slow->next;
+    // }
+
+            
+    // fast->next=NULL;
+    // return;
 }

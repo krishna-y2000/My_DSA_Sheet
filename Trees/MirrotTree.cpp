@@ -37,3 +37,19 @@ treenode* mirrorTree(node* root)
    
   return root;
 }
+
+
+
+// Method 3 :  swap the branches 
+
+treenode* mirrorTree(node* root)
+{
+	// Base Case
+	if (root == NULL)
+		return root;
+	node* left = mirrorTree(root->left);
+  	node* right = mirrorTree(root->right);
+  	root->left = right ;
+  	root->right = left ;
+  	return root ; 
+}

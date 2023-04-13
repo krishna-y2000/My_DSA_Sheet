@@ -5,7 +5,7 @@ using namespace std;
         // Code here
          int leftMax = 0, rightMax = 0;
         int left = 0, right = n-1;
-        int total = 0;
+        int total = 0; /// use long long here if return type is long long 
         while(left < right)
         {
         

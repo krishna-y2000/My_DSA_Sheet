@@ -1,0 +1,10 @@
+Bayer Moore Voting Algorithm : 
+-> It is used to find the majority element in the array 
+-> Approach : 
+1) Take count = 0 ( it will take count of majority element  )
+2) make arr[0] has majority
+3) Iterate all the element 
+    -> if arr[i] != maj_ele -> count--
+    -> if count = 0 , make current element as maj_ele and count = 1 
+4) We will get the majority element from above but it can still not statisfy the condition 
+    so check if count > N/2 then true else return false 

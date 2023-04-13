@@ -13,7 +13,7 @@ using namespace std;
                int low = i + 1 , high = num.size() - 1 , sum = 0 - num[i];
                while(low < high )
                {
-                   if( num[low] + num[high] == sum )
+                   if( num[low] + num[high] == sum ) 
                    {
                        vector<int> temp ;
                        temp.push_back( num[i] );

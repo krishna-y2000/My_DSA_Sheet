@@ -2,9 +2,6 @@
 #include<bits/stdc++.h>
 using namespace std ;
 
-
-
-
 void solve(int row, vector<string> &board, vector<vector<string>> &ans, 
                vector<int> &cols, 
                vector<int> &upperDiagonal, vector<int> &lowerDiagonal, int n)
@@ -15,7 +12,7 @@ void solve(int row, vector<string> &board, vector<vector<string>> &ans,
                 return ;
             }
 
-            for(int col =  0; col < n ; col++ )
+            for(int col =  0 ; col < n ; col++ )
             {
                 if(cols[col] == 0 && lowerDiagonal[col + row ] == 0 && upperDiagonal[row - col + n - 1] == 0 )
                 {

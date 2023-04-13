@@ -3,8 +3,10 @@
 
 using namespace std;
 
- // } Driver Code Ends
-//User function template for C++
+// Input: arr[] = {6, -3, -10, 0, 2}
+// Output:   180  // The subarray is {6, -3, -10}
+
+
 class Solution{
 public:
 
@@ -43,3 +45,20 @@ public:
 //         }
 //         return max;
 //     }
+
+
+// Method 3 : Prefix and Suffix
+
+// long long maxProduct(int *arr, int n) {
+
+// 	long long suff = 1 , pre = 1 , maxval = INT_MIN ; 
+//     	for(int i= 0 ; i < n ; i++)
+//     	{
+//     		suff *= arr[i] ;
+//     		pre *= arr[n-i-1];
+//     		maxval = max(maxval , max(suff , pre));
+//     		if(suff == 0) suff = 1 ;
+//     		if(pre == 0) pre = 1 ;
+//     	}
+//     	return maxval ;
+// }

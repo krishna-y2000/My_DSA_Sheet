@@ -15,7 +15,7 @@ void solve(int cb, int tb , int limit , vector<int> v  )
         result.push_back(v);
         return  ;
     }
-    for(int i = cb  ; i < tb + 1 ; i++)
+    for(int i = cb  ; i < tb + 1 ; i++)       
     {
         v.push_back(i);
         solve(i + 1 , tb ,limit, v  );
@@ -28,7 +28,6 @@ vector<vector<int>> combine(int n, int k) {
     if(n < k )
         return result ;
     vector<int> v ;
-        
     solve( 1 , n ,k , v );
     return result ;
 }

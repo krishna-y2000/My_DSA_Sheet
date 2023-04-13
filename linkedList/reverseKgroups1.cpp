@@ -8,8 +8,16 @@ struct node
 {
     int data ;
     struct node* next ;
-
+    node(int data )
+    {
+        this->data = data ;
+        next = NULL ;
+    }
 };
+
+// LinkedList: 1->2->2->4->5->6
+// K = 4
+// Output: 4 2 2 1 6 5
 
 class Solution
 {
@@ -36,6 +44,6 @@ class Solution
     }
 };
 
-// LinkedList: 1->2->2->4->5->6->7->8
+// LinkedList: 1->2->2->4->5->6
 // K = 4
-// Output: 4 2 2 1 8 7 6 5 
+// Output: 4 2 2 1 6 5

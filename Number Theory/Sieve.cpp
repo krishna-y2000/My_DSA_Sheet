@@ -52,9 +52,9 @@ void sieve()
     int maxn = 1000000;
     for(int i = 1 ; i <= maxn ; i++  )
     {
-        is_prime[i] = 0;
+        is_prime[i] = 1;     // assign every no as a prime no 
     }
-    is_prime[0] = is_prime[1] = 0 ;
+    is_prime[0] = is_prime[1] = 0 ;      // 0 and 1 can't be a prime number   
     for(int i = 2 ; i * i <= maxn ; i++ )
     {
         if(is_prime[i] )
@@ -65,6 +65,17 @@ void sieve()
             }
         }
     }
+    // Now if any index contains isprime[ind] = 1 then it is prime no  
+}
+
+
+// GCD : Euclidean Algorithm
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+     
 }
 
 

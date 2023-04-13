@@ -49,6 +49,6 @@ void solve(int cb, string ustring , int k , vector<string>  current )
 }
 
 
-// ustring : [a ,b , c ] 
+// ustring : [ a ,b , c ] 
 // Result : [ ab , ac , bc ]
 

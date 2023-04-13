@@ -6,9 +6,15 @@
 *** Binary Search ***
 1) Aggressive Cows  ,  Book_Allocation , Painter's Problem
 
-
-
 *** Graph Problem ***
 1) No of island , Number of Operations to Make Network Connected - BFS and Union and Find methods ,  
 
-Launcher key1: VC33298DO
+*** LCS *** 
+1) LPS , Min deletion in palindrome , edit distance , distinct subsequence , 
+    Longest repeating subsequence  , shortest common superSequence(combining two strings)
+
+*** LIS *** 
+1) Divisible subset     
+
+*** Stack *** 
+1) Next Smaller to Right / Left 

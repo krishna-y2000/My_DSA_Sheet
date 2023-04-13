@@ -16,7 +16,7 @@ public:
              return solve(nums , visited , 0 , k - 1 ,  0 , 0 , target );
         }
 
-        for(int i = start ; i < nums.size() ; i++ )
+        for(int i = start ; i < nums.size() ; i++ ) 
         {
             if(!visited[i])
             {

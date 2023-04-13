@@ -2,6 +2,12 @@
 using namespace std ;
 /* structure for a Node */
 
+// Input: nums = [4,5,6,7,0,1,2], target = 0
+// Output: 4
+
+// Input : nums = [1,3] target = 3 
+// Output : 1 
+
 int search(vector<int>& nums, int target) {
             int n = nums.size();
         int left = 0 , right = n - 1 , mid = -1 ;
@@ -31,47 +37,41 @@ int search(vector<int>& nums, int target) {
         return -1 ;
         }
 
-// Method 2 :  JAVA
-// public int search(int[] nums, int target) {
-//     if (nums == null || nums.length == 0) {
-//         return -1;
-//     }
-    
-//     /*.*/
-//     int left = 0, right = nums.length - 1;
-//     //when we use the condition "left <= right", we do not need to determine if nums[left] == target
-//     //in outside of loop, because the jumping condition is left > right, we will have the determination
-//     //condition if(target == nums[mid]) inside of loop
-//     while (left <= right) {
-//         //left bias
-//         int mid = left + (right - left) / 2;
-//         if (target == nums[mid]) {
-//             return mid;
-//         }
-//         //if left part is monotonically increasing, or the pivot point is on the right part
-//         if (nums[left] <= nums[mid]) {
-//             //must use "<=" at here since we need to make sure target is in the left part,
-//             //then safely drop the right part
-//             if (nums[left] <= target && target < nums[mid]) {
-//                 right = mid - 1;
-//             }
-//             else {
-//                 //right bias
-//                 left = mid + 1;
-//             }
-//         }
-
-//         //if right part is monotonically increasing, or the pivot point is on the left part
-//         else {
-//             //must use "<=" at here since we need to make sure target is in the right part,
-//             //then safely drop the left part
-//             if (nums[mid] < target && target <= nums[right]) {
-//                 left = mid + 1;
-//             }
-//             else {
-//                 right = mid - 1;
-//             }
-//         }
-//     }
-//     return -1;
-// }
+// Method 2 : 
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        if(nums.size() == 0 )   return -1 ; 
+        int low = 0 , high = nums.size() - 1 ;
+        while(low <= high)
+        {
+            int mid = low + (high - low ) / 2; 
+            if(nums[mid] == target) return mid ;
+            
+            if(nums[low] <= nums[mid] )
+            {
+                if(target >= nums[low] && target < nums[mid] )
+                {
+                    high = mid - 1 ;
+                }
+                else 
+                {
+                    low = mid + 1 ;
+                }
+            }
+            else 
+            {
+                if(nums[mid] < target && target <= nums[high])
+                {
+                    low = mid + 1 ;
+                }
+                else 
+                    high = mid - 1 ; 
+            }
+            
+           
+        }
+        return -1 ;
+        
+    }
+};

@@ -88,10 +88,10 @@ public:
                 }
             }
      }
-        int maxwait = 0;
-        for (int i = 1; i <= n; i++)
-            maxwait = max(maxwait, dist[i]);
-        return maxwait == INT_MAX ? -1 : maxwait;
+	int maxwait = 0;
+	for (int i = 1; i <= n; i++)
+		maxwait = max(maxwait, dist[i]);
+	return maxwait == INT_MAX ? -1 : maxwait;
 };
 // TC: Explanation 
 // Time complexity of Bellman-Ford algorithm is Θ(|V||E|) where |V| is 

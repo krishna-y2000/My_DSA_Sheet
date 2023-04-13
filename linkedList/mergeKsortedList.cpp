@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+// TC : O(knlog(k) )
+// SC : O(k)
 // A Linked List node
 struct Node
 {

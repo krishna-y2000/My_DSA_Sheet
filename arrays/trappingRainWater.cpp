@@ -26,31 +26,3 @@ using namespace std;
     }
 
 
-
-// Solution 2 : 
-
-class Solution {
-public:
-    int maxArea(vector<int>& arr) {
-        
-        int leftMax = 0, rightMax = 0;
-        int i = 0, j = arr.size()-1;
-        int res = 0; 
-         while(i < j)
-        {
-            int dist = min(arr[i],arr[j]) * (j-i);
-            res = max(dist , res);
-            leftMax = max(leftMax, arr[i]);
-            rightMax = max(rightMax, arr[j]);
-            if(leftMax > rightMax)
-            {
-                j--;
-            }
-            else
-            {
-                i++;
-            }
-        }
-        return res ; 
-    }
-};
